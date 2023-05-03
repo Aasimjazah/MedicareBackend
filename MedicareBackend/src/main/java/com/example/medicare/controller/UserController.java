@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.medicare.entities.User;
 import com.example.medicare.services.UserService;
+import com.example.medicare.userAuthentication.UserAuthentication;
 
 @RestController
 @CrossOrigin
@@ -24,4 +25,18 @@ public class UserController {
 		return userService.addUser(user);
 	}
 
+	//API to authenticate the user at the time of login
+		@PostMapping("/checkUser")
+		public User AuthenticateUser(@RequestBody UserAuthentication user)
+		{
+			System.out.println("API hitting");
+			System.out.println(user);
+			
+			System.out.println("Authenticate user API calling");
+			
+			User u = userService.AuthenticateUser(user);
+			System.out.println(u);
+			
+			return u;
+		}
 }
