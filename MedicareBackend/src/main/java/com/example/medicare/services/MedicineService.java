@@ -23,4 +23,24 @@ public class MedicineService {
 		
 		return (List<Medicine>) medicineRepo.findAll();
 	}
+
+	public Medicine getMedicine(int id) {
+		
+		return medicineRepo.findById(id);
+	}
+
+	public Medicine updateMedicine(Medicine medicine, int id) {
+		Medicine newMedicine=medicineRepo.findById(id);
+		newMedicine.setDescription(medicine.getDescription());
+		newMedicine.setCategory(medicine.getCategory());
+		newMedicine.setPrice(medicine.getPrice());
+		
+		return medicineRepo.save(newMedicine);
+	}
+
+	public void deleteMedicine(int id) {
+		
+		medicineRepo.deleteById(id);
+		
+	}
 }
