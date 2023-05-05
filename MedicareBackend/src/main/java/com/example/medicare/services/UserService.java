@@ -48,4 +48,14 @@ public class UserService {
 		
 		return userRepo.findById(id);
 	}
+
+	public User updateUser(User user, int id) {
+		
+		User newUser = userRepo.findById(id);
+		newUser.setName(user.getName());
+		newUser.setEmail(user.getEmail());
+		newUser.setPassword(user.getPassword());
+		newUser.setCountry(user.getCountry());
+		return userRepo.save(newUser);
+	}
 }
