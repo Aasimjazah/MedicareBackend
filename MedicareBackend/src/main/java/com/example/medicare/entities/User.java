@@ -19,19 +19,30 @@ public class User {
 	private String password;
 	
 	private String country;
+	
+	private String status;
 
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(int id, String name, String email, String password, String country) {
+	public User(int id, String name, String email, String password, String country,String status) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.password = password;
 		this.country = country;
+		this.status = status;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public int getId() {
@@ -77,7 +88,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", country="
-				+ country + "]";
+				+ country + ", status= "+ status +"]";
 	}
 	
 }

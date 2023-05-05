@@ -1,5 +1,7 @@
 package com.example.medicare.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,5 +37,25 @@ public class UserService {
 		}
 		
 		return null;
+	}
+
+	public List<User> allUsers() {
+		
+		return (List<User>) userRepo.findAll();
+	}
+
+	public User getUser(int id) {
+		
+		return userRepo.findById(id);
+	}
+
+	public User updateUser(User user, int id) {
+		
+		User newUser = userRepo.findById(id);
+		newUser.setName(user.getName());
+		newUser.setEmail(user.getEmail());
+		newUser.setPassword(user.getPassword());
+		newUser.setCountry(user.getCountry());
+		return userRepo.save(newUser);
 	}
 }
