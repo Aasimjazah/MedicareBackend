@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.medicare.entities.Medicine;
 import com.example.medicare.entities.Purchased;
+import com.example.medicare.repo.MedicineRepo;
 import com.example.medicare.repo.PurchasedRepo;
 
 
@@ -14,6 +16,9 @@ public class PurchasedService {
 	
 	@Autowired
 	private PurchasedRepo purchasedRepo;
+	
+	@Autowired
+	private MedicineRepo medicineRepo;
 	
 	public Purchased addPurchased(Purchased purchased)
 	{
@@ -27,10 +32,12 @@ public class PurchasedService {
 		return pur;
 	}
 	
-	public List<Purchased> getPurchasedByUserEmailService(String email)
+	public List<Medicine> getPurchasedByUserEmailService(String email)
 	{
-		List<Purchased> pur = (List<Purchased>) purchasedRepo.findByUserEmail(email);
-		return pur;
+		List<Purchased> purchased = (List<Purchased>) purchasedRepo.findByUserEmail(email);
+		List<Medicine> medicines=purchased.stream().map(e->medicineRepo.findById(e.getProductId())).toList();
+		
+		return medicines;
 	}
 	
 }

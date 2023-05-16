@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.medicare.entities.Medicine;
 import com.example.medicare.entities.Purchased;
 import com.example.medicare.services.PurchasedService;
 
@@ -37,9 +38,11 @@ public class PurchasedController {
 	}
 	
 	@GetMapping("/myOrder/{email}")
-	public List<Purchased> getAllPurchased(@PathVariable String email)
+	public List<Medicine> getAllPurchased(@PathVariable String email)
 	{
 		System.out.println(email);
 		return purchasedService.getPurchasedByUserEmailService(email);
 	}
+	
+	
 }
