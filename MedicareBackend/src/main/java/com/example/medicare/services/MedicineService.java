@@ -31,8 +31,8 @@ public class MedicineService {
 
 	public Medicine updateMedicine(Medicine medicine, int id) {
 		Medicine newMedicine=medicineRepo.findById(id);
-		newMedicine.setDescription(medicine.getDescription());
-		newMedicine.setCategory(medicine.getCategory());
+		newMedicine.setManufactureBy(newMedicine.getManufactureBy());
+		newMedicine.setConsumeType(newMedicine.getConsumeType());
 		newMedicine.setPrice(medicine.getPrice());
 		
 		return medicineRepo.save(newMedicine);
