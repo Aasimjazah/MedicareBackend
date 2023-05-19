@@ -14,9 +14,9 @@ public class Medicine {
 	
 	private String name;
 	
-	private String description;
+	private String manufactureBy;
 	
-	private String category;
+	private String consumeType;
 	
 	private String price;
 	
@@ -27,12 +27,12 @@ public class Medicine {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Medicine(int id, String name, String description, String category, String price, String imageURL) {
+	public Medicine(int id, String name, String manufactureBy, String consumeType, String price, String imageURL) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.description = description;
-		this.category = category;
+		this.manufactureBy = manufactureBy;
+		this.consumeType = consumeType;
 		this.price = price;
 		this.imageURL = imageURL;
 	}
@@ -53,20 +53,20 @@ public class Medicine {
 		this.name = name;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getManufactureBy() {
+		return manufactureBy;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setManufactureBy(String manufactureBy) {
+		this.manufactureBy = manufactureBy;
 	}
 
-	public String getCategory() {
-		return category;
+	public String getConsumeType() {
+		return consumeType;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
+	public void setConsumeType(String consumeType) {
+		this.consumeType = consumeType;
 	}
 
 	public String getPrice() {
@@ -87,7 +87,7 @@ public class Medicine {
 
 	@Override
 	public String toString() {
-		return "Medicine [id=" + id + ", name=" + name + ", description=" + description + ", category=" + category
+		return "Medicine [id=" + id + ", name=" + name + ", manufactureBy=" + manufactureBy + ", consumeType=" + consumeType
 				+ ", price=" + price + ", imageURL=" + imageURL + "]";
 	}
 	

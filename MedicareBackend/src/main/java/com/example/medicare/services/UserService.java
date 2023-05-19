@@ -18,6 +18,7 @@ public class UserService {
 	
 	public User addUser(User user)
 	{
+		user.setStatus("active");
 		 return userRepo.save(user);
 	}
 
@@ -57,5 +58,12 @@ public class UserService {
 		newUser.setPassword(user.getPassword());
 		newUser.setCountry(user.getCountry());
 		return userRepo.save(newUser);
+	}
+
+	public void deleteUser(int id) {
+
+		User user=userRepo.findById(id);
+		userRepo.delete(user);
+		
 	}
 }
